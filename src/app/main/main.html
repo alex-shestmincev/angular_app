@@ -1,54 +1,5 @@
-<nav class="navbar mar0"  role="navigation">
-  <div class="container">
-
-    <div class="navbar-header fR">
-
-      <ul class="fR nav navbar-nav">
-        <li class="active fR hidden"><a class="btrad10 basket_count bg0" id="basket_count" href="javascript://" onclick="this.href='http://objavlenie.local/bill/basket'"><div class="sprite fL spr_basket" title="Корзина заказов"></div>&nbsp;<b>0</b></a></li>
-        <li class="active fR hidden"><a class="btrad10 izbr_count" href="javascript://" onclick="this.href='http://objavlenie.local/my/izbrannoe'"><div class="sprite fL spr_star" title="Избранные объявления"></div>&nbsp;<b>0</b></a></li>
-
-
-        <li class="active fR cascade_list mar0">
-          <a class="btrad10" href="http://objavlenie.local/my">Мои объявления</a>
-        </li>
-
-
-        <li class="active fL"><a class="bg0 btrad10" id="addAd" href="http://objavlenie.local/post-new"><div class="sprite spr_add fL"></div> &nbsp; Дать объявление</a></li>
-      </ul>
-
-
-    </div>
-    <div class="cB"></div>
-
-  </div>
-</nav>
-<div class="mainHeader">
-  <div class=" container" >
-
-    <p class="mar0 fs35"><img class="fL"   src="http://objavlenie.local/img/category/child.png" /><a style="color:#424b5c;text-decoration: none;margin:15px 0 0 20px;padding: 3px 0px;" class="fL" href="javascript://" onclick="this.href='http://objavlenie.local'" >Объявление.net</a></p>
-    <div class="cB"></div>
-    <div  class="brad15" >
-      <form name="mysearchform" id="mysearchform" class="mar0" action="" method="post">
-        <input type="text" class="fL" name="find" id="find" style="width:700px"  value="" placeholder="Поиск..."/>
-
-
-        <button class="fR" id="mysearchButton"  type="submit">
-          <div class="sprite fL"></div>
-          Найти                        </button>
-        <select name="status" class="hidden" id="mystatus">
-          <option selected value="1" >1</option>
-          <option  value="2" >2</option>
-          <option  value="3" >3</option>
-        </select>
-      </form>
-    </div>
-
-    <div class="cB"></div>
-  </div>
-</div>
+<div ng-include="'app/main/main.header.html'"></div>
 <div class="container">
-
-
 
   <div class="NavLinks">
     <div class="sprite home fL"></div> &nbsp;
@@ -59,65 +10,17 @@
 
   <h1 align="center">Мои объявления</h1>
   <hr />
-  <div class="fL brad10" id="leftBarIndex" >
-    <ul class="myMenu brad15 tdec0">
 
-      <li class="btrad10 bb0" >
-        <span class="fs16"><b><span class="sprite  spr_ads">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Мои объявления</b></span>
-        <ul>
-          <br />
-          <li>&nbsp;&nbsp;&nbsp;<b>Активные (<span class="stat1count">1</span>)</b> &nbsp; </li>
-          <li class="cP ">&nbsp;&nbsp;&nbsp;<a onclick="$('#mystatus').val('2');$('#mysearchform').submit();">Скрытые (<span class="stat2count">5</span>)</a> &nbsp; </li>
-          <li class="cP ">&nbsp;&nbsp;&nbsp;<a onclick="$('#mystatus').val('3');$('#mysearchform').submit();">Корзина (<span class="stat3count">9</span>)</a> &nbsp; </li>
-          <br />
-        </ul>
-      </li>
+  <div ng-include="'components/menu/menu.html'"></div>
 
-      <li class="fs16 bb0"><a  href="/my/letters"><span class="sprite  spr_letter">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Сообщения</a></li>
-      <li class="fs16 bb0"><a  href="/my/izbrannoe"><span class="sprite  spr_star">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Избранные</a></li>
-      <li class="fs16 bb0 "><a class="tdec0" href="/auth/support"><span class="sprite spr_spravka">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Помощь и поддержка</a></li>
-      <li class="fs16 bbrad10"><a class="tdec0" href="/auth/logout"><span class="sprite spr_logout">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Выйти</a></li>
-
-    </ul>
-
-    <div class="cB"></div>
-    <hr />
-    <div align="center" class="adsenceVertikal">
-      <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-8497152702760243" data-ad-slot="9222701534"></ins>
-    </div>
-
-  </div>
 
   <div class="fL" id="myContent" >
 
-    <div id="myAds">
-  2342
+    <div ui-view></div>
 
-
-
-
-
-    </div>
   </div>
-  <div class="cB"></div>
 
-  <hr>
-  <footer>
-    <div>
-      <div class="fL" style="text-align: left">
-        Поддержка: <a  href="mailto:help@objavlenie.net">help@objavlenie.net</a><br/>
-        Skype: <a href="skype:klik1990?chat">klik1990</a>
-      </div>
 
-      <a class="fR" href="https://metrika.yandex.ru/stat/?id=22717939&amp;from=informer"
-         target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/22717939/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
-                                             style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:22717939,lang:'ru'});return false}catch(e){}"/></a>
-      <noscript><div><img src="//mc.yandex.ru/watch/22717939" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-    </div>
-    <div class="cB"></div>
-    <p>&copy; 2013 - 2015 Доска объявлений Objavlenie.net . Все права защищены</p>
-  </footer>
 
 </div> <!-- /container -->
-
+<div ng-include="'app/main/main.footer.html'"></div>

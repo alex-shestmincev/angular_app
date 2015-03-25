@@ -1,14 +1,9 @@
 'use strict';
 
-angular.module('myapp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ui.bootstrap'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
-      });
+angular.module('myapp', [ 'ui.router','permission','ui.bootstrap'])
+  .config(function ($urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/');
-  })
-;
+    $urlRouterProvider.otherwise('/main/login');
+  });
+
+

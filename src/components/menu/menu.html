@@ -1,0 +1,21 @@
+<div class="fL brad10" id="leftBarIndex" ng-controller="MenuCtrl">
+  <ul class="myMenu brad15 tdec0">
+
+    <li class="fs16 bb0" ng-repeat="menuitem in menuitems">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true" ui-sref="{{menuitem.state}}">
+        {{menuitem.title}} <span ng-if="menuitem.childs.length > 0" class="caret"></span>
+      </a>
+
+      <ul ng-if="menuitem.childs.length" style="margin-left: 20px">
+        <li ng-repeat="subitem in menuitem.childs">
+          <a ui-sref="{{subitem.state}}">{{subitem.title}}</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+
+  <div class="cB"></div>
+  <hr />
+
+  </div>
