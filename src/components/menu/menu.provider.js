@@ -9,17 +9,38 @@ angular.module('myapp').provider('menu',function MenuProvider(){
 
     if (angular.isArray(title) && angular.isArray(state)){
       var childs = [];
-      for (var i = 1; i < title.length; i++) {
-        childs.push({'title': title[i], 'state': state[i]});
+      for (var i = 0; i < title.length; i++) {
+
+        if (i !== 0){
+          parent = _.find(menuItems, function(obj) { return obj.title == title[i-1] });
+          if (obj){
+            parent.childs.push({'title': title[i], 'state': state[i]});
+          }
+        }else{
+          obj = _.find(menuItems, function(obj) { return obj.title == title[i] });
+
+          if (!obj){
+            var newItem = {
+              'title' : title[0],
+              'state' : state[0],
+              'permission' : permission,
+              'childs' : childs
+            };
+            menuItems.push(newItem);
+          }
+
+
+        }
+
+
       }
 
-      var newItem = {
-        'title' : title[0],
-        'state' : state[0],
-        'permission' : permission,
-        'childs' : childs
-      };
-      menuItems.push(newItem);
+
+
+
+
+      console.log(menuItems);
+
     }else{
       var newItem = {
         'title' : title,
