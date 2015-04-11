@@ -29,6 +29,7 @@ angular.module('myapp').factory('loginService',['$q',function($q){
   function logIn(username,password){
     var username = username ? username.trim() : '';
     var password = password ? password.trim() : '';
+
     var password_check = username.split('').reverse().join('');
 
     if (username.length > 0 && password.length && password === password_check){

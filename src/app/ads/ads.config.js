@@ -15,17 +15,18 @@ angular.module('myapp')
             only: permissionOnly
           }
         },
-        params: {'type':'active'}
+        params: {type:'active'}
       });
 
 
+    menuProvider.add('Мои объявления','ads({type:"active"})', permissionOnly,10);
+    menuProvider.add(['Мои объявления','Активные'],['','ads({type:"active"})'], permissionOnly,11);
+    menuProvider.add(['Мои объявления','Скрытые'],['','ads({type:"hidden"})'], permissionOnly, 12);
+    menuProvider.add(['Мои объявления','Корзина'],['','ads({type:"deleted"})'], permissionOnly, 13);
+    //menuProvider.add('Сообщения','letters', permissionOnly, 20);
 
-    menuProvider.add(['Мои объявления','Активные'],['','ads'], permissionOnly);
-    menuProvider.add(['Мои объявления','Скрытые'],['','ads({type:hidden})'], permissionOnly);
-    menuProvider.add(['Мои объявления','Корзина'],['','ads(type:deleted)'], permissionOnly)
+    //menuProvider.setActive('letters');
 
-    ;
-    //menuProvider.add('Сообщения','main.letters', permissionOnly);
     //menuProvider.add('Избранное','main.izbrannoe', permissionOnly);
     //menuProvider.add('Помощь и поддержка','main.support', permissionOnly);
 

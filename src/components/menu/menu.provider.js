@@ -4,7 +4,7 @@ angular.module('myapp').provider('menu',function MenuProvider(){
   var menuItemsByRole = [];
   var currentRole;
 
-  this.add = function(title,state,permission){
+  this.add = function(title,state,permission,priority){
 
 
     if (angular.isArray(title) && angular.isArray(state)){
@@ -13,8 +13,8 @@ angular.module('myapp').provider('menu',function MenuProvider(){
 
         if (i !== 0){
           parent = _.find(menuItems, function(obj) { return obj.title == title[i-1] });
-          if (obj){
-            parent.childs.push({'title': title[i], 'state': state[i]});
+          if (parent){
+            parent.childs.push({'title': title[i], 'state': state[i], 'priority': priority, 'active':0});
           }
         }else{
           obj = _.find(menuItems, function(obj) { return obj.title == title[i] });
@@ -24,6 +24,8 @@ angular.module('myapp').provider('menu',function MenuProvider(){
               'title' : title[0],
               'state' : state[0],
               'permission' : permission,
+              'priority' : priority,
+              'active' : 0,
               'childs' : childs
             };
             menuItems.push(newItem);
@@ -34,26 +36,18 @@ angular.module('myapp').provider('menu',function MenuProvider(){
 
 
       }
-
-
-
-
-
-      console.log(menuItems);
-
     }else{
       var newItem = {
         'title' : title,
         'state' : state,
         'permission' : permission,
+        'priority' : priority,
+        'active' : 0,
         'childs': []
+
       };
       menuItems.push(newItem);
     }
-
-
-
-
 
   }
 
@@ -62,6 +56,17 @@ angular.module('myapp').provider('menu',function MenuProvider(){
       getitems : function(){return menuItems; },
       getitemsByRole : function(role){return getItemsByRole(role);}
     }
+
+  }
+
+  this.setActive = function(sref){
+
+    obj_deact = _.find(menuItems, function(obj) { return obj.active == 1 });
+    if (obj_deact){ obj_deact.active = 0; }
+
+    obj = _.find(menuItems, function(obj) { return obj.state == sref });
+    if (obj){ obj.active = 1;}
+
 
   }
 
