@@ -17,5 +17,5 @@ angular.module('myapp')
         }
       });
 
-    menuProvider.add('Сообщения','letters', permissionOnly, 20);
+    menuProvider.add('Сообщения',['letters'], permissionOnly, 20);
   });

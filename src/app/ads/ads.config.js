@@ -19,10 +19,10 @@ angular.module('myapp')
       });
 
 
-    menuProvider.add('Мои объявления','ads({type:"active"})', permissionOnly,10);
-    menuProvider.add(['Мои объявления','Активные'],['','ads({type:"active"})'], permissionOnly,11);
-    menuProvider.add(['Мои объявления','Скрытые'],['','ads({type:"hidden"})'], permissionOnly, 12);
-    menuProvider.add(['Мои объявления','Корзина'],['','ads({type:"deleted"})'], permissionOnly, 13);
+    menuProvider.add('Мои объявления',['ads',{type:"active"}], permissionOnly,10);
+    menuProvider.add(['Мои объявления','Активные'],['ads',{type:"active"}], permissionOnly,11);
+    menuProvider.add(['Мои объявления','Скрытые'],['ads',{type:"hidden"}], permissionOnly, 12);
+    menuProvider.add(['Мои объявления','Корзина'],['ads',{type:"deleted"}], permissionOnly, 13);
     //menuProvider.add('Сообщения','letters', permissionOnly, 20);
 
     //menuProvider.setActive('letters');

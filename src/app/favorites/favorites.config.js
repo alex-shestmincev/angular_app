@@ -17,5 +17,5 @@ angular.module('myapp')
         }
       });
 
-    menuProvider.add('Избранное','favorites', permissionOnly, 30);
+    menuProvider.add('Избранное',['favorites'], permissionOnly, 30);
   });

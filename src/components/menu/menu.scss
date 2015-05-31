@@ -1,0 +1,11 @@
+.myMenu .menu-active{
+  text-decoration: underline;
+}
+
+.myMenu .menu-disabled{
+  text-decoration: none;
+}
+
+.myMenu .menu-item{
+  cursor: pointer;
+}

@@ -18,9 +18,9 @@ angular.module('myapp')
         }
       });
 
-    menuProvider.add('Login','login', ['guest'], 1);
+    menuProvider.add('Login',['login'], ['guest'], 1);
 
-    menuProvider.add('Выход','login({logout:true})', ['user','admin'], 99);
+    menuProvider.add('Выход',['login',{logout:true}], ['user','admin'], 99);
 
   }).run(function($rootScope,$state,loginService,Permission){
 

@@ -1,14 +1,16 @@
 <div class="fL brad10" id="leftBarIndex">
   <ul class="myMenu brad15 tdec0">
 
-    <li class="fs16 bb0 " ng-repeat="menuitem in menuitems" >
-      <a class="dropdown-toggle {{menuitem.active?'tdec1':''}}" data-toggle="dropdown" role="button" aria-expanded="true" ui-sref="{{menuitem.state}}">
+    <li class="fs16 bb0" ng-repeat="menuitem in menuitems | orderBy: 'priority'" >
+      <a class="menu-item {{menuitem.active?'menu-active':''}}" ng-click="activate(menuitem.id);">
         {{menuitem.title}}<span ng-if="menuitem.childs.length > 0" class="caret"></span>
       </a>
 
       <ul ng-if="menuitem.childs.length" style="margin-left: 20px">
         <li ng-repeat="subitem in menuitem.childs">
-          <a ui-sref="{{subitem.state}}" ng-click="activate(subitem.state)">{{subitem.title}}</a>
+          <a class="menu-item {{subitem.active?'menu-active':''}}" ng-click="activate(subitem.id);">
+            {{subitem.title}}
+          </a>
         </li>
       </ul>
     </li>

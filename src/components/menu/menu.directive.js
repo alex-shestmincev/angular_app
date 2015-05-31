@@ -1,4 +1,4 @@
-angular.module('myapp').directive('myMenu',function(loginService, menu, $document){
+angular.module('myapp').directive('myMenu',function(loginService, menu, $state){
   return {
     priority: 11,
     restrict: 'E',
@@ -6,11 +6,14 @@ angular.module('myapp').directive('myMenu',function(loginService, menu, $documen
     controller: function ($scope) {
 
       var userRole = loginService.getRole();
-      var menuItems = menu.getitemsByRole(userRole);
+      $scope.menuitems = menu.getitemsByRole(userRole);
 
-
-
-      $scope.menuitems = menuItems;
+      $scope.activate = function(id){
+        var obj = menu.setActive(id);
+        if (obj){
+            $state.go.apply(obj,obj.state);
+        }
+      }
     },
     scope: false,
     templateUrl: '/components/menu/menu.html',
