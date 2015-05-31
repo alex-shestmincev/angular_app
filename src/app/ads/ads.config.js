@@ -23,11 +23,6 @@ angular.module('myapp')
     menuProvider.add(['Мои объявления','Активные'],['ads',{type:"active"}], permissionOnly,11);
     menuProvider.add(['Мои объявления','Скрытые'],['ads',{type:"hidden"}], permissionOnly, 12);
     menuProvider.add(['Мои объявления','Корзина'],['ads',{type:"deleted"}], permissionOnly, 13);
-    //menuProvider.add('Сообщения','letters', permissionOnly, 20);
-
-    //menuProvider.setActive('letters');
-
-    //menuProvider.add('Избранное','main.izbrannoe', permissionOnly);
     //menuProvider.add('Помощь и поддержка','main.support', permissionOnly);
 
 
